@@ -1,0 +1,43 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "mmagent01"
+  description: This is Agent Deploymnt
+  tags:
+    - strands
+  annotations:
+    backstage.io/kubernetes-label-selector: 'entity-id=mmagent01'
+    argocd/app-selector: 'entity-id=mmagent01'
+    backstage.io/kubernetes-cluster: workshop
+    argo-workflows.cnoe.io/cluster-name: local
+    argo-workflows.cnoe.io/namespace: mmagent01
+    argo-workflows.cnoe.io/label-selector: 'entity-id=mmagent01'
+    backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/cnoe-idp-demo/mmagent01
+      title: Agent Repo 
+      icon: github
+    - url: https://github.com/cnoe-idp-demo/mmagent01-deploy
+      title: Agent Deploy Repo
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: agent
+  system: "mmagent01"
+  providesApis: ['api:mmagent01']
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: "AgentCore"
+  description: An example system for demonstration purpose
+  links:
+    - url: https://github.com/cnoe-idp-demo/mmagent01
+      title: App Repo
+      icon: github
+spec:
+  owner: guests
+  lifecycle: experimental
+  type: agent
